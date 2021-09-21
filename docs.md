@@ -61,6 +61,7 @@ player = await hypixel.player.get(name=name, input=query)  # will use name
 - `last: datetime.datetime` - the most recent login of the player
 - `logout: datetime.datetime` - the most recent logout of the player
 - `online: bool(x)` - returns True if online, and False if offline
+- `onlinefor: datetime.datetime` - the amount of time the player was last online for.
 
 `Social`:
 any attribute in this class could be `None`
