@@ -307,6 +307,7 @@ def get_guild_level_exact(experience):
         2500000
     ]
     c = 0.0
+    increment = 0
     for it in experience_below_14:
         if it > experience:
             level = c + round(experience / it * 100.0) / 100.0

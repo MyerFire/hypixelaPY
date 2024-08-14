@@ -125,11 +125,11 @@ class Logins:
     """
 
     def __init__(self, data):
-        self.first = datetime.datetime.utcfromtimestamp(data.get("player", {}).get("firstLogin", 0) / 1000)
-        self.last = datetime.datetime.utcfromtimestamp(data.get("player", {}).get("lastLogin", 0) / 1000)
-	self.logout = datetime.datetime.utcfromtimestamp(data.get("player", {}).get("lastLogout", 0) / 1000)
-	self.online = True if self.logout < self.last else False
-	self.onlinetime = datetime.datetime.utcnow() - self.last if self.logout < self.last else self.logout - self.last
+        self.first = datetime.datetime.fromtimestamp(data.get("player", {}).get("firstLogin", 0) / 1000, datetime.UTC)
+        self.last = datetime.datetime.fromtimestamp(data.get("player", {}).get("lastLogin", 0) / 1000, datetime.UTC)
+        self.logout = datetime.datetime.fromtimestamp(data.get("player", {}).get("lastLogout", 0) / 1000, datetime.UTC)
+        self.online = True if self.logout < self.last else False
+        self.onlinetime = datetime.datetime.now(datetime.UTC) - self.last if self.logout < self.last else self.logout - self.last
 
 
 class Social:
